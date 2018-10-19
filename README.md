@@ -63,5 +63,3 @@ $validator = RequiredFields::create([
     'Recaptcha'
 ]);
 ```
-
-requied fields
