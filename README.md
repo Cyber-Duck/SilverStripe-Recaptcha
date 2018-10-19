@@ -20,10 +20,13 @@ RECAPTCHA_SECRET_KEY="0000000000"
 ```
 
 Add the field to any form on your site just as you would any other field.
-Pass in the field name.
+Pass in: 
+- the field name.
 
 ```php
-RecaptchaField::create('Recaptcha');
+RecaptchaField::create(
+	'Recaptcha'
+);
 ```
 
 ## Invisible Recaptcha
@@ -36,12 +39,15 @@ RECAPTCHA_INVISIBLE_SECRET_KEY="0000000000"
 ```
 
 Add the field to any form on your site just as you would any other field.
-Pass in the field name, the form ID, and the HTML element to render the reCAPTCHA widget.
+Pass in: 
+- the field name, 
+- the form ID (without #)
+- the HTML element selector to render the reCAPTCHA widget.
 
 ```php
 InvisibleRecaptchaField::create(
     'Recaptcha', 
-    'your-form-id',
-    'button'
+    'MemberLoginForm_LoginForm',
+    '#MemberLoginForm_LoginForm_action_doLogin'
 );
 ```
