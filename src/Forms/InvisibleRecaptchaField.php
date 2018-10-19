@@ -26,11 +26,11 @@ class InvisibleRecaptchaField extends LiteralField implements RecaptchaElement
     use RecaptchaValidator;
     
     /**
-     * Form field selector
+     * Form ID selector
      *
      * @var string
      */
-    protected $formSelector;
+    protected $formID;
 
     /**
      * Form selector
@@ -57,16 +57,16 @@ class InvisibleRecaptchaField extends LiteralField implements RecaptchaElement
      * Sets the required properties and passes the reCAPTCAH HTML to the LiteralField parent class
      *
      * @param string $name
-     * @param string $formSelector
+     * @param string $formID
      * @param string $container
      */
-    public function __construct(string $name, string $formSelector, string $container)
+    public function __construct(string $name, string $formID, string $container)
     {
         Requirements::javascript('https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', [
             "async" => true,
             "defer" => true,
         ]);
-        $this->formSelector = $formSelector;
+        $this->formID = $formID;
         $this->container = $container;
         $this->siteKey = Environment::getEnv('RECAPTCHA_INVISIBLE_SITE_KEY');
         $this->secretKey = Environment::getEnv('RECAPTCHA_INVISIBLE_SECRET_KEY');
@@ -82,7 +82,7 @@ class InvisibleRecaptchaField extends LiteralField implements RecaptchaElement
 	public function getRecaptchaHTML(): string
 	{
         return Controller::curr()->customise([
-            'FormSelector' => $this->formSelector,
+            'FormID' => $this->formID,
             'Container' => $this->container,
             'SiteKey' => Environment::getEnv('RECAPTCHA_INVISIBLE_SITE_KEY')
         ])->renderWith('Forms/InvisibleRecaptcha');

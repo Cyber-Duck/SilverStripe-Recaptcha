@@ -1,6 +1,6 @@
 <script type="text/javascript">
     var onRecaptchaFormSubmit = function(token) {
-        $('#{$FormSelector}').submit();
+        document.getElementById('{$FormID}').submit();
     };
     var onloadCallback = function() {
         grecaptcha.render('{$Container}', {
