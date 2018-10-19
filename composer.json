@@ -1,0 +1,29 @@
+{
+    "name": "cyber-duck/silverstripe-recaptcha",
+    "description": "Standard reCAPTCHA and invisible reCAPTCHA form fields for SilverStripe",
+    "homepage": "https://github.com/cyber-duck/silverstripe-recaptcha",
+    "keywords": [
+        "silverstripe",
+        "recaptcha"
+    ],
+    "type": "silverstripe-vendormodule",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Mc Cormack",
+            "email": "andy@cyber-duck.co.uk"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/cyber-duck/silverstripe-recaptcha"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~6"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "prefer-stable": true
+}
