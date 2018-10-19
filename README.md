@@ -8,6 +8,8 @@ Standard reCAPTCHA and invisible reCAPTCHA form fields for SilverStripe
 
 Author: [Andrew Mc Cormack](https://github.com/Andrew-Mc-Cormack)
 
+**For SilverStripe 4.* **
+
 ## Standard Recaptcha
 
 Add 2 .env vars with your recaptcha keys
