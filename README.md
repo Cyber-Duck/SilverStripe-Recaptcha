@@ -21,7 +21,7 @@ Add the field to any form on your site just as you would any other field.
 Pass in the field name.
 
 ```php
-InvisibleRecaptchaField::create('Recaptcha');
+RecaptchaField::create('Recaptcha');
 ```
 
 ## Invisible Recaptcha
