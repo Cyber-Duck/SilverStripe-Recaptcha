@@ -42,12 +42,12 @@ Add the field to any form on your site just as you would any other field.
 Pass in: 
 - the field name, 
 - the form ID (without #)
-- the HTML element selector to render the reCAPTCHA widget.
+- the HTML element ID (without #) or selector (such as button) to render the reCAPTCHA widget.
 
 ```php
 InvisibleRecaptchaField::create(
     'Recaptcha', 
     'MemberLoginForm_LoginForm',
-    '#MemberLoginForm_LoginForm_action_doLogin'
+    'MemberLoginForm_LoginForm_action_doLogin'
 );
 ```
