@@ -26,9 +26,7 @@ Also add the field to the required fields list.
 
 ```php
 $fields = FieldList::create([
-	RecaptchaField::create(
-		'Recaptcha'
-	);
+	RecaptchaField::create('Recaptcha');
 ]);
 
 $validator = RequiredFields::create([
