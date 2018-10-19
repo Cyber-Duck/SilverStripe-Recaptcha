@@ -25,6 +25,8 @@ Pass in:
 Also add the field to the required fields list.
 
 ```php
+use CyberDuck\Recaptcha\Forms\RecaptchaField;
+
 $fields = FieldList::create([
 	RecaptchaField::create('Recaptcha');
 ]);
@@ -51,6 +53,8 @@ Pass in:
 Also add the field to the required fields list.
 
 ```php
+use CyberDuck\Recaptcha\Forms\InvisibleRecaptchaField;
+
 $fields = FieldList::create([
 	InvisibleRecaptchaField::create(
 	    'Recaptcha', 
