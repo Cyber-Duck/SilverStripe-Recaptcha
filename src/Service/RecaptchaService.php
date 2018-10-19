@@ -8,6 +8,18 @@ use GuzzleHttp\Psr7\Request;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Forms\Validator;
 
+/**
+ * Service to validate the passed reCAPTCHA value and reCAPTCHA API response
+ * 
+ * @category   SilverStripe reCAPTCHA
+ * @category   SilverStripe reCAPTCHA
+ * @author     Andrew Mc Cormack <andy@cyber-duck.co.uk>
+ * @copyright  Copyright (c) 2018, Andrew Mc Cormack
+ * @license    https://github.com/cyber-duck/silverstripe-recaptcha/license
+ * @version    1.0.0
+ * @link       https://github.com/cyber-duck/silverstripe-recaptcha
+ * @since      1.0.0
+ */
 class RecaptchaService
 {
     protected $field;
@@ -62,7 +74,7 @@ class RecaptchaService
     {
         $this->validator->validationError(
             $this->field->getName(),
-            'Invalid reCAPTCHA',
+            $message,
             'required'
         );
     }
