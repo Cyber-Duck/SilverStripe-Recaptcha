@@ -8,7 +8,7 @@ Standard reCAPTCHA and invisible reCAPTCHA form fields for SilverStripe
 
 Author: [Andrew Mc Cormack](https://github.com/Andrew-Mc-Cormack)
 
-**For SilverStripe 4.* **
+__For SilverStripe 4.*__
 
 ## Standard Recaptcha
 
