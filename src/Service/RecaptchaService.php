@@ -22,16 +22,48 @@ use SilverStripe\Forms\Validator;
  */
 class RecaptchaService
 {
+    /**
+     * RecaptchaElement form field
+     *
+     * @var RecaptchaElement
+     */
     protected $field;
     
+    /**
+     * Form field validator instance
+     *
+     * @var Validator
+     */
     protected $validator;
     
+    /**
+     * Controller request
+     *
+     * @var HTTPRequest
+     */
     protected $request;
     
+    /**
+     * HTTP client instance
+     *
+     * @var Client
+     */
     protected $client;
 
+    /**
+     * reCAPTCHA API endpoint
+     *
+     * @var string
+     */
     protected $endpoint = 'https://www.google.com/recaptcha/api/siteverify';
 
+    /**
+     * Sets the required properties
+     *
+     * @param RecaptchaElement $field
+     * @param Validator $validator
+     * @param HTTPRequest $request
+     */
     public function __construct(RecaptchaElement $field, Validator $validator, HTTPRequest $request)
     {
         $this->field = $field;
@@ -40,6 +72,11 @@ class RecaptchaService
         $this->client = new Client();
     }
 
+    /**
+     * Performs the reCAPTCHA validation
+     *
+     * @return boolean
+     */
     public function validate(): bool
     {
         if(!$this->request->postVar('g-recaptcha-response')) {
@@ -49,6 +86,11 @@ class RecaptchaService
         return $this->validateRequest();
     }
 
+    /**
+     * Performs the reCAPTCHA API request validation
+     *
+     * @return boolean
+     */
     private function validateRequest(): bool
     {
         $response = $this->client->request('POST', 
@@ -70,6 +112,12 @@ class RecaptchaService
         return true;
     }
 
+    /**
+     * Sets an error message on the form field
+     *
+     * @param string $message
+     * @return void
+     */
     private function setRecaptchaErrorMessage(string $message): void
     {
         $this->validator->validationError(
@@ -79,6 +127,11 @@ class RecaptchaService
         );
     }
 
+    /**
+     * Builds the reCAPTCHA API endpoint URI
+     *
+     * @return string
+     */
     private function getRecaptchaRequestEndpoint(): string
     {
         $params = http_build_query([

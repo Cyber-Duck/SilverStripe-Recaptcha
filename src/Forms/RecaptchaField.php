@@ -24,10 +24,25 @@ class RecaptchaField extends LiteralField implements RecaptchaElement
 {
     use RecaptchaValidator;
 
+    /**
+     * reCAPTCHA site key
+     *
+     * @var string
+     */
     protected $siteKey;
 
+    /**
+     * reCAPTCHA secret key
+     *
+     * @var string
+     */
     protected $secretKey;
 
+    /**
+     * Sets the required properties and passes the reCAPTCAH HTML to the LiteralField parent class
+     *
+     * @param string $name
+     */
     public function __construct(string $name)
     {
         Requirements::javascript('https://www.google.com/recaptcha/api.js');
@@ -39,6 +54,11 @@ class RecaptchaField extends LiteralField implements RecaptchaElement
         parent::__construct($name, $this->getRecaptchaHTML());
     }
 
+    /**
+     * Returns the rendered reCAPTCHA HTML for output
+     *
+     * @return string
+     */
 	public function getRecaptchaHTML(): string
 	{
 		return sprintf(

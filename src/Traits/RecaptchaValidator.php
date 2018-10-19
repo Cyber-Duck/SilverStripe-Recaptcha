@@ -2,8 +2,9 @@
 
 namespace CyberDuck\Recaptcha\Traits;
 
-use SilverStripe\Control\Controller;
 use CyberDuck\Recaptcha\Service\RecaptchaService;
+use SilverStripe\Control\Controller;
+use SilverStripe\Forms\Validator;
 
 /**
  * reCAPTCHA validator trait form form element(s)
@@ -19,7 +20,13 @@ use CyberDuck\Recaptcha\Service\RecaptchaService;
  */
 trait RecaptchaValidator
 {
-    public function validate($validator)
+    /**
+     * Form field validator method
+     *
+     * @param Validator $validator
+     * @return boolean
+     */
+    public function validate(Validator $validator): bool
     {
         $service = new RecaptchaService(
             $this, 

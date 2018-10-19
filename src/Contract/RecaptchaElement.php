@@ -16,5 +16,10 @@ namespace CyberDuck\Recaptcha\Contract;
  */
 interface RecaptchaElement
 {
+    /**
+     * Returns the rendered reCAPTCHA HTML for output
+     *
+     * @return string
+     */
     public function getRecaptchaHTML(): string;
 }
