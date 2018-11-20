@@ -26,7 +26,7 @@ trait RecaptchaValidator
      * @param Validator $validator
      * @return boolean
      */
-    public function validate(Validator $validator): bool
+    public function validate($validator)
     {
         $service = new RecaptchaService(
             $this, 
