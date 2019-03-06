@@ -10,6 +10,18 @@ Author: [Andrew Mc Cormack](https://github.com/Andrew-Mc-Cormack)
 
 __For SilverStripe 4.*__
 
+## Installation
+
+Add the following to your composer.json file and run /dev/build?flush=all
+
+```json
+{  
+    "require": {  
+        "cyber-duck/silverstripe-recaptcha": "4.0.*"
+    }
+}
+```
+
 ## Standard Recaptcha
 
 Add 2 .env vars with your recaptcha keys
