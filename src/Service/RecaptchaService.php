@@ -63,12 +63,14 @@ class RecaptchaService
      * @param RecaptchaElement $field
      * @param Validator $validator
      * @param HTTPRequest $request
+     * @param string $secretKey
      */
-    public function __construct(RecaptchaElement $field, Validator $validator, HTTPRequest $request)
+    public function __construct(RecaptchaElement $field, Validator $validator, HTTPRequest $request, string $secretKey)
     {
         $this->field = $field;
         $this->validator = $validator;
         $this->request = $request;
+        $this->secretKey = $secretKey;
         $this->client = new Client();
     }
 

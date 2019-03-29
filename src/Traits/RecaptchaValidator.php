@@ -8,7 +8,7 @@ use SilverStripe\Forms\Validator;
 
 /**
  * reCAPTCHA validator trait form form element(s)
- * 
+ *
  * @category   SilverStripe reCAPTCHA
  * @category   SilverStripe reCAPTCHA
  * @author     Andrew Mc Cormack <andy@cyber-duck.co.uk>
@@ -21,6 +21,13 @@ use SilverStripe\Forms\Validator;
 trait RecaptchaValidator
 {
     /**
+     * reCAPTCHA secret key
+     *
+     * @var string
+     */
+    protected $secretKey;
+
+    /**
      * Form field validator method
      *
      * @param Validator $validator
@@ -29,9 +36,10 @@ trait RecaptchaValidator
     public function validate($validator)
     {
         $service = new RecaptchaService(
-            $this, 
-            $validator, 
-            Controller::curr()->getRequest()
+            $this,
+            $validator,
+            Controller::curr()->getRequest(),
+            $this->secretKey
         );
         return $service->validate();
     }
