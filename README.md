@@ -79,3 +79,44 @@ $validator = RequiredFields::create([
     'Recaptcha'
 ]);
 ```
+
+## Working with jQuery and AJAX
+
+If you would like to use the reCAPTCHA with AJAX you can copy the InvisibleRecaptcha.ss from the module templates folder into your theme templates folder
+
+```javascript
+<script type="text/javascript">
+    var onRecaptchaFormSubmit = function(token) {
+        document.getElementById('{$FormID}').submit();
+    };
+    var onloadCallback = function() {
+        grecaptcha.render('{$Container}', {
+        'sitekey' : '{$SiteKey}',
+        'callback' : onRecaptchaFormSubmit
+        });
+    };
+</script>
+```
+
+And just update the onRecaptchaFormSubmit function to use jQuery to select and submit the form
+
+```javascript
+<script type="text/javascript">
+    var onRecaptchaFormSubmit = function(token) {
+        $('#{$FormID}').submit();
+    };
+    var onloadCallback = function() {
+        grecaptcha.render('{$Container}', {
+        'sitekey' : '{$SiteKey}',
+        'callback' : onRecaptchaFormSubmit
+        });
+    };
+</script>
+
+```
+
+In your AJAX success function, if your form fails validation you can call onloadCallback() to re-render the reCAPTCHA
+
+```javascript
+onloadCallback()
+```
