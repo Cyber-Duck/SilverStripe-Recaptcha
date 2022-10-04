@@ -18,7 +18,7 @@
         "issues": "https://github.com/cyber-duck/silverstripe-recaptcha"
     },
     "require": {
-        "guzzlehttp/guzzle": "~6"
+        "guzzlehttp/guzzle": "~6|~7"
     },
     "autoload": {
         "classmap": [

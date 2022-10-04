@@ -46,7 +46,6 @@ class RecaptchaField extends LiteralField implements RecaptchaElement
     public function __construct(string $name)
     {
         Requirements::javascript('https://www.google.com/recaptcha/api.js');
-        Requirements::javascript('https://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
 
         $this->siteKey = Environment::getEnv('RECAPTCHA_SITE_KEY');
         $this->secretKey = Environment::getEnv('RECAPTCHA_SECRET_KEY');
